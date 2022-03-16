@@ -5,7 +5,9 @@ using namespace std;
 
 int main()
 {
-    KString ks("aaa");
-    std::cout << ks.CharArray() << std::endl;
+    auto str1 = KString("test1");
+    auto str2 = KString("test2, test3");
+    str1 = "test3";
+    std::cout << str1.CharArray() << std::endl;
     return 0;
 }
