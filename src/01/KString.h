@@ -1,8 +1,6 @@
 #ifndef _KSTRING_H_
 #define _KSTRING_H_
-
 #include <iostream>
-
 using namespace std;
 
 class KString
@@ -22,6 +20,7 @@ class KString
         operator char*();
         operator const char*();
         KString operator=(const KString& ks);
+        int len();
 
 };
 
@@ -79,6 +78,11 @@ KString KString::operator =(const KString &ks)
         strncpy_s(chars, length + 1, ks.chars, length);
     }
     return *this;
+}
+
+int KString::len()
+{
+    return length;
 }
 
 KString::~KString()
