@@ -1,7 +1,11 @@
 #include <iostream>
+#include "KString.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    KString ks("aaa");
+    std::cout << ks.CharArray() << std::endl;
     return 0;
 }
