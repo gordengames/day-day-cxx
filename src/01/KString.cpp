@@ -1,47 +1,72 @@
 #include "KString.h"
 
-//Constructor
-KString::KString():chars{nullptr}, length{0}
+int GetLength(const char* chars)
 {
-    chars = new char[1];
-    chars[0] = '\0';
+    if(chars == nullptr)
+    {
+        return -1;
+    }
+    int length = 0;
+    while (chars[length] != '\0')
+    {
+        length++;
+    }
+    return length;
 }
 
 //Constructor
-KString::KString(const char * const input)
+KString::KString(const char * input)
 {
-    //Initiate a int to store the length of the string
-    length = strlen(input);
-    //Initiate a char array to store the string
-    chars = new char[length + 1];
-    //Copy the string to the char array
-    strncpy_s(chars, length + 1, input, length);
+    if(input == nullptr)
+    {
+        m_Length = 1;
+        m_Chars = new char[m_Length];
+        m_Chars[0] = '\0';
+    }
+    else
+    {
+        //Initiate a int to store the length of the string
+        int length = GetLength(input);
+        m_Length = length;
+        //Initiate a char array to store the string
+        m_Chars = new char[m_Length + 1];
+        char* temp = m_Chars;
+        for(int i = 0; i < length; i++)
+        {
+            *temp = *input;
+            temp++;
+            input++;
+        }
+        m_Chars[m_Length] = '\0';
+    }
 }
 
 //Copy Constructor
-KString::KString(KString &ks)
+KString::KString(const KString &ks)
 {
     if(this == &ks)
     {
         return;
     }
-    chars = new char[ks.length + 1];
-    strncpy_s(chars, length + 1, ks.chars, length);
+    m_Length = ks.m_Length;
+    m_Chars = new char[ks.m_Length + 1];
+    memcpy(m_Chars, ks.m_Chars, ks.m_Length);
+    m_Chars[m_Length] = '\0';
 }
 
 char * KString::CharArray()
 {
-    return chars;
+    return m_Chars;
 }
 
 KString::operator char*()
 {
- return chars;
+ return m_Chars;
 }
 
 KString::operator const char* ()
 {
- return chars;
+ return m_Chars;
 }
 
 //= operator
@@ -49,29 +74,48 @@ KString KString::operator =(const KString &ks)
 {
     if(this != &ks)
     {
-        if(chars != nullptr)
+        if(m_Chars != nullptr)
         {
-            delete[] chars;
+            delete[] m_Chars;
         }
-        length = ks.length;
-        chars = new char[length + 1];
-        strncpy_s(chars, length + 1, ks.chars, length);
+        m_Length = ks.m_Length;
+        m_Chars = new char[m_Length + 1];
+        memcpy(m_Chars, ks.m_Chars, m_Length);
+        m_Chars[m_Length] = '\0';
     }
     return *this;
 }
 
-//Get length of char array
+//Get m_Length of char array
 int KString::len(void)
 {
-    return length;
+    return m_Length;
+}
+
+//Substring
+KString KString::Sub(const int start, const int length)
+{
+    char* sub_Chars = new char[length + 1];
+    char* pTemp = sub_Chars;
+    char* pStart = m_Chars + start;
+    int count = 0;
+    while (count < length)
+    {
+        *pTemp = *pStart;
+        pTemp++;
+        pStart++;
+        count++;
+    }
+    sub_Chars[length] = '\0';
+    return(KString(sub_Chars));
 }
 
 //Destructor
 KString::~KString()
 {
-    if(chars != nullptr)
+    if(m_Chars != nullptr)
     {
-        delete[] chars;
+        delete[] m_Chars;
     }
 }
 

@@ -8,20 +8,20 @@ class KString
 {
     private:
         //Initiate a char array to store the string
-        char *chars = nullptr;
+        char* m_Chars = nullptr;
         //Initiate a int to store the length of the string
-        unsigned int length = 0;
+        unsigned int m_Length = 0;
 
     public:
-        KString();
-        KString(const char* const chars);
-        KString(KString& ks);
+        KString(const char* chars);
+        KString(const KString& ks);
         ~KString();
         char * CharArray();
         operator char*();
         operator const char*();
         KString operator=(const KString& ks);
         int len();
+        KString Sub(const int start, const int length);
 
 };
 #endif
