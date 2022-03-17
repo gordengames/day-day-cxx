@@ -1,6 +1,6 @@
 #include <iostream>
 #include "KString.h"
-#include <string>
+
 using namespace std;
 
 int main()
