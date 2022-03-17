@@ -137,6 +137,21 @@ bool KString::operator==(const KString &ks)
     }
     return true;
 }
+
+//Find
+int KString::Find(const char* chars)
+{
+    int length = GetLength(chars);
+    for(unsigned int i = 0; i < m_Length - length + 1; i++)
+    {
+        if(memcmp(m_Chars + i, chars, length) == 0)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 //Destructor
 KString::~KString()
 {

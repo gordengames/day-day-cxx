@@ -12,9 +12,11 @@ int main()
     KString sub1 = str1.Sub(1,2);
     str1.Append("append");
     bool equal = str1 == str2;
+    int index = str1.Find("es");
     cout << str1.CharArray() << std::endl;
     cout << str1.len() << std::endl;
     cout << sub1.CharArray() << std::endl;
     cout << equal << std::endl;
+    cout << index << std::endl;
     return 0;
 }

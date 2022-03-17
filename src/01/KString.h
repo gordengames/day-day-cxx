@@ -24,5 +24,6 @@ class KString
         KString Sub(const int start, const int length);
         void Append(const char* chars);
         bool operator==(const KString& ks);
+        int Find(const char* chars);
 };
 #endif
