@@ -61,12 +61,12 @@ char * KString::CharArray()
 
 KString::operator char*()
 {
- return m_Chars;
+    return m_Chars;
 }
 
 KString::operator const char* ()
 {
- return m_Chars;
+    return m_Chars;
 }
 
 //= operator
@@ -198,4 +198,3 @@ KString::~KString()
         delete[] m_Chars;
     }
 }
-
