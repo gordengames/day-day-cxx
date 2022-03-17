@@ -23,5 +23,6 @@ class KString
         int len();
         KString Sub(const int start, const int length);
         void Append(const char* chars);
+        bool operator==(const KString& ks);
 };
 #endif

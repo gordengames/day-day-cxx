@@ -122,6 +122,21 @@ void KString::Append(const char* chars)
     m_Length += length;
 }
 
+bool KString::operator==(const KString &ks)
+{
+    if(m_Length != ks.m_Length)
+    {
+        return false;
+    }
+    for(unsigned int i = 0; i < m_Length; i++)
+    {
+        if(m_Chars[i] != ks.m_Chars[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
 //Destructor
 KString::~KString()
 {
