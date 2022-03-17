@@ -22,6 +22,6 @@ class KString
         KString operator=(const KString& ks);
         int len();
         KString Sub(const int start, const int length);
-
+        void Append(const char* chars);
 };
 #endif

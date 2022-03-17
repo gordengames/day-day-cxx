@@ -110,6 +110,18 @@ KString KString::Sub(const int start, const int length)
     return(KString(sub_Chars));
 }
 
+//Append
+void KString::Append(const char* chars)
+{
+    int length = GetLength(chars);
+    char* temp = new char[m_Length + length + 1];
+    memcpy(temp, m_Chars, m_Length);
+    memcpy(temp + m_Length, chars, length);
+    temp[m_Length + length] = '\0';
+    m_Chars = temp;
+    m_Length += length;
+}
+
 //Destructor
 KString::~KString()
 {

@@ -9,6 +9,7 @@ int main()
     auto str2 = KString("test2, test3");
     str1 = "test3";
     KString sub1 = str1.Sub(1,2);
+    str1.Append("append");
     std::cout << str1.CharArray() << std::endl;
     std::cout << str1.len() << std::endl;
     std::cout << sub1.CharArray() << std::endl;
