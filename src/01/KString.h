@@ -13,7 +13,7 @@ class KString
         unsigned int m_Length = 0;
 
     public:
-        KString(const char* chars);
+        KString(const char* chars = nullptr);
         KString(const KString& ks);
         ~KString();
         char * CharArray();
@@ -25,5 +25,6 @@ class KString
         void Append(const char* chars);
         bool operator==(const KString& ks);
         int Find(const char* chars);
+        KString* Split(const char* chars);
 };
 #endif

@@ -152,6 +152,44 @@ int KString::Find(const char* chars)
     return -1;
 }
 
+//Split
+KString* KString::Split(const char* chars)
+{
+    int index = 0;
+    int length = GetLength(m_Chars);
+    KString* temp = new KString[length];
+    KString subString = KString(*this);
+    KString* pTemp = temp;
+    int count = 0;
+    while (index != -1)
+    {
+        index = subString.Find(chars);
+        if(index > 0)
+        {
+            auto str1 = subString.Sub(0, index);
+            subString = subString.Sub(index + 1, subString.len() - index);
+            *pTemp = str1;
+            count++;
+            pTemp++;
+        }
+    }
+    if (count == 0)
+    {
+        delete[] temp;
+        return nullptr;
+    }
+    else
+    {
+        KString* result = new KString[count];
+        for(int i = 0; i < count; i++)
+        {
+            result[i] = temp[i];
+        }
+        delete[] temp;
+        return result;
+    }
+}
+
 //Destructor
 KString::~KString()
 {
