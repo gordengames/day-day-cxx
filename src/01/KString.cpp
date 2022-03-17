@@ -1,11 +1,13 @@
 #include "KString.h"
 
+//Constructor
 KString::KString():chars{nullptr}, length{0}
 {
     chars = new char[1];
     chars[0] = '\0';
 }
 
+//Constructor
 KString::KString(const char * const input)
 {
     //Initiate a int to store the length of the string
@@ -16,6 +18,7 @@ KString::KString(const char * const input)
     strncpy_s(chars, length + 1, input, length);
 }
 
+//Copy Constructor
 KString::KString(KString &ks)
 {
     if(this == &ks)
@@ -41,6 +44,7 @@ KString::operator const char* ()
  return chars;
 }
 
+//= operator
 KString KString::operator =(const KString &ks)
 {
     if(this != &ks)
@@ -56,11 +60,13 @@ KString KString::operator =(const KString &ks)
     return *this;
 }
 
+//Get length of char array
 int KString::len(void)
 {
     return length;
 }
 
+//Destructor
 KString::~KString()
 {
     if(chars != nullptr)
