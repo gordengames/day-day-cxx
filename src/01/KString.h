@@ -15,6 +15,7 @@ class KString
     public:
         KString(const char* chars = nullptr);
         KString(const KString& ks);
+        KString(const char c, const unsigned int length);
         ~KString();
         char * CharArray();
         operator char*();

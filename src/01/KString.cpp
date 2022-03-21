@@ -69,6 +69,17 @@ KString::operator const char* ()
     return m_Chars;
 }
 
+KString::KString(const char c, const unsigned int length)
+{
+    m_Length = length;
+    m_Chars = new char[m_Length + 1];
+    for(unsigned int i = 0; i < m_Length; i++)
+    {
+        m_Chars[i] = c;
+    }
+    m_Chars[m_Length] = '\0';
+}
+
 //= operator
 KString KString::operator =(const KString &ks)
 {
