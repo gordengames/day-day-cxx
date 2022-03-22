@@ -210,6 +210,12 @@ KString KString::operator+(const KString &ks)
     return result;
 }
 
+//+= operator
+void KString::operator+=(const KString &ks)
+{
+    Append(ks.m_Chars);
+}
+
 //Destructor
 KString::~KString()
 {

@@ -28,5 +28,6 @@ class KString
         int Find(const char* chars);
         KString* Split(const char* chars);
         KString operator+(const KString& ks);
+        void operator+=(const KString& ks);
 };
 #endif
