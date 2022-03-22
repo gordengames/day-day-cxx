@@ -27,5 +27,6 @@ class KString
         bool operator==(const KString& ks);
         int Find(const char* chars);
         KString* Split(const char* chars);
+        KString operator+(const KString& ks);
 };
 #endif

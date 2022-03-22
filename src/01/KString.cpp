@@ -133,6 +133,7 @@ void KString::Append(const char* chars)
     m_Length += length;
 }
 
+//== operator
 bool KString::operator==(const KString &ks)
 {
     if(m_Length != ks.m_Length)
@@ -199,6 +200,14 @@ KString* KString::Split(const char* chars)
         delete[] temp;
         return result;
     }
+}
+
+//+ operator
+KString KString::operator+(const KString &ks)
+{
+    KString result = KString(*this);
+    result.Append(ks.m_Chars);
+    return result;
 }
 
 //Destructor

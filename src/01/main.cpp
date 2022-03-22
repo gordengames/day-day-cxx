@@ -15,6 +15,7 @@ int main()
     bool equal = str1 == str2;
     int index = str1.Find("es");
     KString* ret = str2.Split(",");
+    auto str4 = str1 + str2;
     cout << str1.CharArray() << std::endl;
     cout << str1.len() << std::endl;
     cout << sub1.CharArray() << std::endl;
@@ -22,5 +23,6 @@ int main()
     cout << index << std::endl;
     cout << ret[0].CharArray() << std::endl;
     cout << str3.CharArray()<< std::endl;
+    cout << str4.CharArray() << std::endl;
     return 0;
 }
