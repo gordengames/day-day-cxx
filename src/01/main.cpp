@@ -16,6 +16,7 @@ int main()
     int index = str1.Find("es");
     KString* ret = str2.Split(",");
     auto str4 = str1 + str2;
+    KString str5 = "1";
     str3 += str2;
     cout << str1.CharArray() << std::endl;
     cout << str1.len() << std::endl;
@@ -25,5 +26,6 @@ int main()
     cout << ret[0].CharArray() << std::endl;
     cout << str3.CharArray()<< std::endl;
     cout << str4.CharArray() << std::endl;
+    cout << str5.empty() << std::endl;
     return 0;
 }

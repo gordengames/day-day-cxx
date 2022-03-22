@@ -216,6 +216,12 @@ void KString::operator+=(const KString &ks)
     Append(ks.m_Chars);
 }
 
+// empty
+bool KString::empty()
+{
+    return m_Length == 0;
+}
+
 //Destructor
 KString::~KString()
 {

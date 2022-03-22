@@ -29,5 +29,6 @@ class KString
         KString* Split(const char* chars);
         KString operator+(const KString& ks);
         void operator+=(const KString& ks);
+        bool empty();
 };
 #endif
