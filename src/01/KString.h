@@ -30,5 +30,6 @@ class KString
         KString operator+(const KString& ks);
         void operator+=(const KString& ks);
         bool empty();
+        bool operator!=(const KString& ks);
 };
 #endif

@@ -222,6 +222,12 @@ bool KString::empty()
     return m_Length == 0;
 }
 
+//!= operator
+bool KString::operator!=(const KString &ks)
+{
+    return !(*this == ks);
+}
+
 //Destructor
 KString::~KString()
 {
