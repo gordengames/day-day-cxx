@@ -228,6 +228,23 @@ bool KString::operator!=(const KString &ks)
     return !(*this == ks);
 }
 
+//<< operator
+std::ostream& operator<<(std::ostream& os, const KString& ks)
+{
+    os << ks.m_Chars;
+    return os;
+}
+
+//>> operator
+std::istream& operator>>(std::istream& is, KString& ks)
+{
+    char* temp = new char[1024];
+    is >> temp;
+    ks = KString(temp);
+    delete[] temp;
+    return is;
+}
+
 //Destructor
 KString::~KString()
 {

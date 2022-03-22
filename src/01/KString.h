@@ -31,5 +31,7 @@ class KString
         void operator+=(const KString& ks);
         bool empty();
         bool operator!=(const KString& ks);
+        friend ostream& operator<<(ostream& os, const KString& ks);
+        friend istream& operator>>(istream& is, KString& ks);
 };
 #endif

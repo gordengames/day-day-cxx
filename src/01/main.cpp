@@ -2,6 +2,7 @@
 #include "KString.h"
 
 using namespace std;
+using std::cin;
 using std::cout;
 
 int main()
@@ -18,6 +19,9 @@ int main()
     auto str4 = str1 + str2;
     KString str5 = "1";
     str3 += str2;
+    KString str6;
+    cin >> str6;
+    cout << str6 << std::endl;
     cout << str1.CharArray() << std::endl;
     cout << str1.len() << std::endl;
     cout << sub1.CharArray() << std::endl;
