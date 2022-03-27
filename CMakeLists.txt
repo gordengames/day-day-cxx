@@ -25,10 +25,14 @@ endif()
 # find_package(Catch2 CONFIG REQUIRED)
 
 function(add_problem problemid)
-    add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KString.cpp)
+    # 01
+    # add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KString.cpp)
+    # 02
+    add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KArray.cpp)
     # add_test(NAME ${problemid} COMMAND ${problemid})
     # target_link_libraries(${problemid} PRIVATE Catch2::Catch2)
     # target_compile_definitions(${problemid} PRIVATE TEST_TAGS="\\\"[${problemid}]\\\"" PRIVATE TEST_NAME="\\\"${linkname}\\\"")
 endfunction(add_problem)
 
-add_problem(01)
+#add_problem(01)
+add_problem(02)
