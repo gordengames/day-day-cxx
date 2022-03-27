@@ -1,10 +1,10 @@
-#ifndef _KARRAY_H_
+﻿#ifndef _KARRAY_H_
 #define _KARRAY_H_
 #include <iostream>
 
 using namespace std;
 
-
+//我还不会模板，我先写个整形数组的
 class KArray
 {
     private:
