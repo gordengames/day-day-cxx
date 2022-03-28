@@ -18,7 +18,8 @@ class KArray
     KArray(const KArray& ka);
     ~KArray();
     void Reserve(unsigned int length);
-
+    unsigned int const GetCount() const {return m_Count;}
+    unsigned int const GetLength() const {return m_Length;}
 };
 
 #endif

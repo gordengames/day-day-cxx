@@ -14,10 +14,10 @@ KArray::KArray(const KArray& ka)
     {
         return;
     }
-    Reserve(ka.m_Length);
-    m_Length = ka.m_Length;
-    m_Count = ka.m_Count;
-    for(unsigned int i = 0; i < ka.m_Count; i++)
+    Reserve(ka.GetLength());
+    m_Length = ka.GetLength();
+    m_Count = ka.GetCount();
+    for(unsigned int i = 0; i < m_Count; i++)
     {
         m_IntArray[i] = ka.m_IntArray[i];
     }
