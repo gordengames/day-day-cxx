@@ -58,3 +58,36 @@ void KArray::Push(int value)
     m_IntArray[m_Count] = value;
     m_Count++;
 }
+
+//Print
+void KArray::Print()
+{
+    if (m_IntArray == nullptr)
+    {
+        return;
+    }
+    for(unsigned int i = 0; i < m_Count; i++)
+    {
+        cout << m_IntArray[i] << " ";
+    }
+    cout << endl;
+}
+
+//Insert
+void KArray::Insert(unsigned int index, int value)
+{
+    if(index > m_Count)
+    {
+        return;
+    }
+    if(m_Count == m_Length)
+    {
+        Reserve(m_Length + 1);
+    }
+    for(unsigned int i = m_Count; i > index; i--)
+    {
+        m_IntArray[i] = m_IntArray[i - 1];
+    }
+    m_IntArray[index] = value;
+    m_Count++;
+}

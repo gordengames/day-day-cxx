@@ -11,5 +11,8 @@ int main()
     auto arr = KArray();
     arr.Reserve(10);
     arr.Push(1);
+    arr.Push(2);
+    arr.Insert(1, 3);
+    arr.Print();
     return 0;
 }

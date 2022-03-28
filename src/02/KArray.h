@@ -21,6 +21,8 @@ class KArray
     unsigned int const GetCount() const {return m_Count;}
     unsigned int const GetLength() const {return m_Length;}
     void Push(int value);
+    void Print();
+    void Insert(unsigned int index, int value);
 };
 
 #endif
