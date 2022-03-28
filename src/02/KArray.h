@@ -23,6 +23,7 @@ class KArray
     void Push(int value);
     void Print();
     void Insert(unsigned int index, int value);
+    void Remove(unsigned int index);
 };
 
 #endif

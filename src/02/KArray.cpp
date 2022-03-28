@@ -91,3 +91,17 @@ void KArray::Insert(unsigned int index, int value)
     m_IntArray[index] = value;
     m_Count++;
 }
+
+//Remove
+void KArray::Remove(unsigned int index)
+{
+    if(index > m_Count)
+    {
+        return;
+    }
+    for(unsigned int i = index; i < m_Count - 1; i++)
+    {
+        m_IntArray[i] = m_IntArray[i + 1];
+    }
+    m_Count--;
+}
