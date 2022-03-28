@@ -47,3 +47,14 @@ void KArray::Reserve(unsigned int length)
         m_Length = length;
     }
 }
+
+//Push
+void KArray::Push(int value)
+{
+    if(m_Count == m_Length)
+    {
+        Reserve(m_Length + 1);
+    }
+    m_IntArray[m_Count] = value;
+    m_Count++;
+}
