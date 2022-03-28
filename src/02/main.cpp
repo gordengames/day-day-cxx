@@ -8,6 +8,7 @@ using std::cout;
 int main()
 {
     cout << "hello 02"<<std::endl;
-    KArray();
+    auto arr = KArray();
+    arr.Reserve(10);
     return 0;
 }

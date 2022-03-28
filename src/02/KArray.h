@@ -9,13 +9,15 @@ class KArray
 {
     private:
     int* m_IntArray = nullptr;
-    unsigned int m_Length = 0;
-    unsigned int m_Count= 0;
+    unsigned int m_Count= 0; //real count of the array
+    unsigned int m_Length = 0; //length that the array can hold
+    
 
     public:
     KArray();
     KArray(const KArray& ka);
     ~KArray();
+    void Reserve(unsigned int length);
 
 };
 
