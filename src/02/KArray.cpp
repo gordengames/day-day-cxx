@@ -111,3 +111,11 @@ void KArray::Pop()
 {
     Remove(0);
 }
+
+//Clear
+void KArray::Clear()
+{
+    m_Count = 0;
+    delete[] m_IntArray;
+    m_IntArray = new int[m_Length];
+}
