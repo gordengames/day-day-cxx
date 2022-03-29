@@ -13,9 +13,8 @@ int main()
     arr.Push(1);
     arr.Push(2);
     arr.Insert(1, 3);
-    arr.Remove(1);
-    arr.Pop();
-    arr.Clear();
+    int index = arr.FindIndex(4);
+    cout << "index: " << index << endl; 
     arr.Print();
     return 0;
 }

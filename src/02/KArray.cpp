@@ -119,3 +119,15 @@ void KArray::Clear()
     delete[] m_IntArray;
     m_IntArray = new int[m_Length];
 }
+
+int KArray::FindIndex(int value)
+{
+    for(unsigned int i = 0; i < m_Count; i++)
+    {
+        if(m_IntArray[i] == value)
+        {
+            return i;
+        }
+    }
+    return -1;
+}

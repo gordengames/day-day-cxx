@@ -26,6 +26,7 @@ class KArray
     void Remove(unsigned int index);
     void Pop();
     void Clear();
+    int FindIndex(int value);
 };
 
 #endif
