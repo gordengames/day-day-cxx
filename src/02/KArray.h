@@ -24,6 +24,7 @@ class KArray
     void Print();
     void Insert(unsigned int index, int value);
     void Remove(unsigned int index);
+    void Pop();
 };
 
 #endif

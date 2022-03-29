@@ -14,6 +14,7 @@ int main()
     arr.Push(2);
     arr.Insert(1, 3);
     arr.Remove(1);
+    arr.Pop();
     arr.Print();
     return 0;
 }

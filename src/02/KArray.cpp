@@ -95,7 +95,7 @@ void KArray::Insert(unsigned int index, int value)
 //Remove
 void KArray::Remove(unsigned int index)
 {
-    if(index > m_Count)
+    if(index >= m_Count)
     {
         return;
     }
@@ -104,4 +104,10 @@ void KArray::Remove(unsigned int index)
         m_IntArray[i] = m_IntArray[i + 1];
     }
     m_Count--;
+}
+
+//Pop
+void KArray::Pop()
+{
+    Remove(0);
 }
