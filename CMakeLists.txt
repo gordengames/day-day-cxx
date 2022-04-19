@@ -28,7 +28,7 @@ function(add_problem problemid)
     # 01
     # add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KString.cpp)
     # 02
-    add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KArray.cpp)
+    add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KArray.cpp src/${problemid}/KList.cpp)
     # add_test(NAME ${problemid} COMMAND ${problemid})
     # target_link_libraries(${problemid} PRIVATE Catch2::Catch2)
     # target_compile_definitions(${problemid} PRIVATE TEST_TAGS="\\\"[${problemid}]\\\"" PRIVATE TEST_NAME="\\\"${linkname}\\\"")
