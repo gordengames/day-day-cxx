@@ -33,6 +33,7 @@ class KList
     KList() = default;
     KList(const KList& kl) =default;
     KNode* Push(int value);
+    KNode* Insert(KNode* node, int value);
     void PopAll();
     ~KList();
 };
