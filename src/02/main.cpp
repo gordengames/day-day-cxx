@@ -20,9 +20,10 @@ int main()
 
     cout << "hello 02_List" << std::endl;
     auto list = KList();
-    list.Push(1);
+    auto node1 = list.Push(1);
     auto node2 = list.Push(2);
     list.Insert(node2, 3);
+    list.Remove(node1);
     auto ret = list.Find(3);
     cout << "ret: " << ret->m_Value << endl;
     return 0;

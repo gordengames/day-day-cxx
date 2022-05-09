@@ -35,6 +35,7 @@ class KList
     KNode* Push(int value);
     KNode* Insert(KNode* node, int value);
     KNode* Find(int value);
+    void Remove(KNode* node);
     void PopAll();
     ~KList();
 };

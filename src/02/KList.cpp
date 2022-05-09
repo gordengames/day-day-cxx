@@ -54,6 +54,33 @@ KNode* KList::Find(int value)
     return nullptr;
 }
 
+void KList::Remove(KNode* node)
+{
+    if(node == nullptr)
+    {
+        return;
+    }
+
+    if(node->m_Next == nullptr)
+    {
+        node->m_Prev->m_Next = nullptr;
+    }
+    else
+    {
+        if(node->m_Prev == nullptr)
+        {
+            node->m_Next->m_Prev = nullptr;
+        }
+        else
+        {
+            node->m_Prev->m_Next = node->m_Next;
+            node->m_Next->m_Prev = node->m_Prev;
+        }
+    }
+
+    delete node;
+}
+
 void KList::PopAll()
 {
     while (m_Tail) {
