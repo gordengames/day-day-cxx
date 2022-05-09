@@ -34,6 +34,7 @@ class KList
     KList(const KList& kl) =default;
     KNode* Push(int value);
     KNode* Insert(KNode* node, int value);
+    KNode* Find(int value);
     void PopAll();
     ~KList();
 };

@@ -23,5 +23,7 @@ int main()
     list.Push(1);
     auto node2 = list.Push(2);
     list.Insert(node2, 3);
+    auto ret = list.Find(3);
+    cout << "ret: " << ret->m_Value << endl;
     return 0;
 }

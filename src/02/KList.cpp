@@ -22,7 +22,7 @@ KNode* KList::Insert(KNode* node, int value)
     {
         return Push(value);
     }
-    
+
     KNode* newNode = new KNode(value);
     if(node->m_Prev == nullptr)
     {
@@ -38,6 +38,20 @@ KNode* KList::Insert(KNode* node, int value)
         node->m_Prev = newNode;
     }
     return newNode;
+}
+
+KNode* KList::Find(int value)
+{
+    KNode* node = m_Tail;
+    while(node != nullptr)
+    {
+        if(node->m_Value == value)
+        {
+            return node;
+        }
+        node = node->m_Prev;
+    }
+    return nullptr;
 }
 
 void KList::PopAll()
