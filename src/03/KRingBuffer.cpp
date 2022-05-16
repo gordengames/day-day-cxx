@@ -44,7 +44,7 @@ void KRingBuffer::ResetBufferSize(int size)
 
 void KRingBuffer::Push(const char* value)
 {
-    int addSize = strlen(value);
+    int addSize = (int)strlen(value);
     std::cout << addSize <<endl;
     if (currentSize + addSize > bufferSize)
     {
@@ -110,5 +110,6 @@ void KRingBuffer::Print()
         {
             std::cout << 0;
         }
+        count++;
     }
 }

@@ -10,11 +10,10 @@ using std::cout;
 int main()
 {
     cout << "hello 03"<<std::endl;
-    //int initSize = 256;
+    int initSize = 256;
     const char* data = "123";
-    cout << strlen(data) << endl;
-    //auto buffer = new KRingBuffer(initSize);
-    //buffer->Push(data);
-    //buffer->Print();
-
+    int size = (int)strlen(data);
+    auto buffer = new KRingBuffer(initSize);
+    buffer->Push(data);
+    buffer->Print();
 }
