@@ -12,6 +12,8 @@ class KRingBuffer
     KRingBuffer();
     KRingBuffer(int size);
     ~KRingBuffer();
+    void Push(const char* value);
+    void Print();
 
     private:
     int bufferSize;
@@ -23,6 +25,7 @@ class KRingBuffer
 
     void InitBufferSize(int size);
     void ResetBufferSize(int size);
+    void PushChar(const char value);
 };
 
 #endif
