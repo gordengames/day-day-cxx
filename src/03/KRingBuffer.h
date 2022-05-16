@@ -21,7 +21,8 @@ class KRingBuffer
     char* head;
     char* tail;
 
-    void initBufferSize(int size);
+    void InitBufferSize(int size);
+    void ResetBufferSize(int size);
 };
 
 #endif
