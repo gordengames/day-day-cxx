@@ -15,7 +15,13 @@ class KRingBuffer
 
     private:
     int bufferSize;
-    int usedSize;
+    int currentSize;
+
+    char* memAddr;
+    char* head;
+    char* tail;
+
+    void initBufferSize(int size);
 };
 
 #endif
