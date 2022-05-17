@@ -42,13 +42,12 @@ void KRingBuffer::ResetBufferSize(int size)
     }
 }
 
-void KRingBuffer::Push(const char* value)
+void KRingBuffer::Push(const char* value, int length)
 {
-    int addSize = (int)strlen(value);
-    std::cout << addSize <<endl;
+    int addSize = length - 1;
     if (currentSize + addSize > bufferSize)
     {
-        ResetBufferSize(bufferSize + addSize *2);
+        ResetBufferSize(bufferSize + addSize * 2);
     }
     currentSize += addSize;
     int index = 0;
@@ -111,5 +110,42 @@ void KRingBuffer::Print()
             std::cout << 0;
         }
         count++;
+    }
+}
+
+char KRingBuffer::PopChar()
+{
+    char returnChar = head[0];
+    head[0] = 0;
+
+    if(head + 1 >= memAddr + bufferSize)
+    {
+        head = memAddr;
+    }
+    else
+    {
+        head++;
+    }
+    return returnChar;
+}
+
+void KRingBuffer::Pop(char* outValue, int size)
+{
+    if(size > currentSize)
+    {
+        size = currentSize;
+    }
+    currentSize -= size;
+
+    int index = 0;
+    while (index < size)
+    {
+        char temp = PopChar();
+        outValue[index] = temp;
+        index ++;
+    }
+    if (bufferSize - currentSize > DEFAULT_BUFFER_SIZE * 2)
+    {
+        ResetBufferSize(currentSize + DEFAULT_BUFFER_SIZE);
     }
 }
