@@ -40,6 +40,7 @@ void KRingBuffer::ResetBufferSize(int size)
         memAddr = p;
         head = memAddr;
         tail = memAddr + currentSize;
+        memset(memAddr + currentSize + 1, 0, sizeof(char) * (size) - currentSize);
     }
 }
 
@@ -49,6 +50,7 @@ void KRingBuffer::Push(const char* value, int length)
     if (currentSize + addSize > bufferSize)
     {
         ResetBufferSize(bufferSize + addSize * 2);
+        std::cout << "buffersize:" << bufferSize << std::endl;
     }
     currentSize += addSize;
     int index = 0;
@@ -69,7 +71,7 @@ void KRingBuffer::PushChar(const char value)
     };
     if(tail > head)
     {
-        if(memAddr + bufferSize >= tail +1)
+        if(memAddr + bufferSize >= tail + 1)
         {
             PushExc();
         }
