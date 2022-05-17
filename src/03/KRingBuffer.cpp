@@ -27,6 +27,7 @@ void KRingBuffer::InitBufferSize(int size)
         memset(memAddr, 0, sizeof(char) * (size));
         head = memAddr;
         tail = memAddr;
+        currentSize = 0;
     }
 }
 
