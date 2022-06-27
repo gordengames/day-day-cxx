@@ -30,7 +30,9 @@ function(add_problem problemid)
     # 02
     # add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KArray.cpp src/${problemid}/KList.cpp)
     # 03
-    add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KRingBuffer.cpp)
+    # add_executable(${problemid} src/${problemid}/main.cpp src/${problemid}/KRingBuffer.cpp)
+    # 04
+    add_executable(${problemid} src/${problemid}/main.cpp)
     
     # add_test(NAME ${problemid} COMMAND ${problemid})
     # target_link_libraries(${problemid} PRIVATE Catch2::Catch2)
@@ -39,4 +41,5 @@ endfunction(add_problem)
 
 #add_problem(01)
 #add_problem(02)
-add_problem(03)
+#add_problem(03)
+add_problem(04)
