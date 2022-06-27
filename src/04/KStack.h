@@ -1,81 +1,48 @@
 #ifndef _KSTACK_H_
 #define _KSTACK_H_
 #include <iostream>
+#include <stack>
+#include <assert.h>
 
 using namespace std;
 
-struct KStackNode {
+struct KStackNode
+{
     void* data = nullptr;
-    KStackNode* next = nullptr;
-    int size;
-
-    KStackNode(int valueSize) {
-        size = valueSize;
-        next = nullptr;
-    }
+    std::string typeStr;
 };
 
 class KStack
 {
     private:
-    KStackNode* top;
+    std::stack<KStackNode> m_stack;
 
     public:
-    KStack()
+	template<typename T>
+	void push(const T& value)
     {
-        top = nullptr;
-    }
+		KStackNode node;
+		node.typeStr = typeid(T).name();
+		T* ptr = new T();
+		*ptr = value;
+		node.data = (void*)ptr;
+		m_stack.push(node);
+	}
 
-    ~KStack()
+	template<typename T>
+	void pop(T& value)
     {
-        auto currentNode = top;
-        while (currentNode) {
-            auto nextNode = currentNode->next;
-            delete currentNode;
-            currentNode = nullptr;
-            if (nextNode) {
-                currentNode = nextNode;
-            }
-        }
-    }
-
-    template<typename T>
-    void push(T value)
-    {
-        int size = sizeof(value);
-        KStackNode* temp = new KStackNode(size);
-        temp->data = new T(value);
-
-        if (top) {
-            auto currentNode = top;
-            while (currentNode) {
-                if (currentNode->next) {
-                    currentNode = currentNode->next;
-                }
-                else {
-                    break;
-                }
-            }
-            currentNode->next = temp;
-        }
-        else {
-            top = temp;
-        }
-    }
-
-    template<typename T>
-    void pop(T& value)
-    {
-        if (top == nullptr) {
-            return;
-        }
-        auto temp = top->next;
-        T* currentNode = (T*)top->data;
-        memcpy(&value, currentNode, top->size);
-        delete top->data;
-        delete top;
-        top = temp;
-    }
+		KStackNode node = m_stack.top();
+		if (std::string(typeid(T).name()) != node.typeStr)
+		{
+			assert(false);
+			return;
+		}
+		T* ptr = (T*)(node.data);
+		value = *ptr;
+		delete node.data;
+		m_stack.pop();
+	}
 };
 
 #endif
